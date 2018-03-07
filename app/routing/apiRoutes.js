@@ -33,7 +33,7 @@ module.exports = function(app) {
 
     //When we find the perfect friend match, we need an object to hold the match.
 
-    var perfectFriend = {
+    var bestFriend = {
 
       name: "",
 
@@ -88,17 +88,17 @@ module.exports = function(app) {
 
         //If the total difference is less than the difference of the current perfectFriend, set this friend as the perfectFriend.
 
-        if (totalDifference < perfectFriend.scoreDifference) {
+        if (totalDifference < bestFriend.scoreDifference) {
 
-          perfectFriend.name = friendsData[i].name;
+          bestFriend.name = friendsData[i].name;
 
-          perfectFriend.photo = friendsData[i].photo;
+          bestFriend.photo = friendsData[i].photo;
 
-          perfectFriend.scoreDifference = totalDifference;
+          bestFriend.scoreDifference = totalDifference;
 
 
 
-          console.log("Perfect Friend:" + perfectFriend.name);
+          console.log("Best Friend:" + bestFriend.name);
 
         }
 
@@ -118,7 +118,7 @@ module.exports = function(app) {
 
   //Return the friend match as json so that we can display the match to the user in the html.
 
-	res.json(perfectFriend);
+	res.json(bestFriend);
 
   });
 
